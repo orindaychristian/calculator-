@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULATOR LOGIC WITH JAVASCRIPT</title>
+    <style>
+        body {
+            background-color: lightcyan;
+        }
+        #result {
+            grid-column: span 6;
+            width: 90%;
+            height: 80px;
+            background-color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 50px;
+            text-align: right;
+            margin: auto;
+            margin-top: 0px;
+            margin-bottom: 20px;
+            padding: 38px;
+            margin-left: 5px;
+        }
+        h2 {
+            color: greenyellow;
+            margin-top: 0px;
+            font-size: 20px;
+        }
+        .num-btn {
+            height: 48px;
+            width: 48px;
+            background-color: greenyellow;
+
+            border: none;
+            border-radius: 50%;
+            margin: 8px;
+            font-size: 20px;
+            border-style: hidden;
+        }
+        .num-btnn {
+            height: 48px;
+            width: 48px;
+            background-color: white;
+
+            border: none;
+            border-radius: 50%;
+            margin: 8px;
+            font-size: 20px;
+            border-style: hidden;
+        }
+        table {
+            margin: 0% auto;
+            padding: top 50px;
+            padding-bottom: 50px;
+            background-color: black;
+            height: 200px;
+            width: 250px;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">CALCULATOR APP</h1>
+
+    <table>
+        <tr>
+            <td colspan="3"><input type="text" id="result" disabled></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="AC" onclick="clear_all()" class="num-btn"></td>
+            <td><input type="button" value="%" onclick="appendNumber()" class="num-btn"></td>
+            <td><input type="button" value="&#x232b" onclick="del()" class="num-btn"></td>
+            <td><input type="button" value="/" onclick="devide()" class="num-btn"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="1" onclick="appendNumber(1)" class="num-btnn"></td>
+            <td><input type="button" value="2" onclick="appendNumber(2)" class="num-btnn"></td>
+            <td><input type="button" value="3" onclick="appendNumber(3)" class="num-btnn"></td>
+            <td><input type="button" value="*" onclick="multiply()" class="num-btn"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="4" onclick="appendNumber(4)" class="num-btnn"></td>
+            <td><input type="button" value="5" onclick="appendNumber(5)" class="num-btnn"></td>
+            <td><input type="button" value="6" onclick="appendNumber(6)" class="num-btnn"></td>
+            <td><input type="button" value="-" onclick="minus()" class="num-btn"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="7" onclick="appendNumber(7)" class="num-btnn"></td>
+            <td><input type="button" value="8" onclick="appendNumber(8)" class="num-btnn"></td>
+            <td><input type="button" value="9" onclick="appendNumber(9)" class="num-btnn"></td>
+            <td><input type="button" value="+" onclick="add()" class="num-btn"></td>
+        </tr>
+
+        <tr>
+            <td><input type="button" value="." onclick="dot()" class="num-btnn"></td>
+            <td><input type="button" value="0" onclick="appendNumber(0)" class="num-btnn"></td>
+            <td><input type="button" value="()" onclick="parenthesis()" class="num-btnn"></td>
+            <td><input type="button" value="=" onclick="calculate()" class="num-btn"></td>
+            
+        </tr>
+        <script>
+            let currentInput = '';
+            let currentOperator = '';
+
+            function appendNumber(number) {
+                currentInput += number;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function devide() {
+                currentOperator = "/";
+                currentInput += currentOperator;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function multiply() {
+                currentOperator = "*";
+                currentInput += currentOperator;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function minus() {
+                currentOperator = "-";
+                currentInput += currentOperator;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function add() {
+                currentOperator = "+";
+                currentInput += currentOperator;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function calculate() {
+                const result = eval(currentInput);
+                document.getElementById('result').value = result;
+                currentInput = result.toString();
+                currentOperator = '';
+            }
+
+            function dot() {
+                currentOperator = ".";
+                currentInput += currentOperator;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function clear_all() {
+                currentInput = "";
+                document.getElementById('result').value = currentInput;
+            }
+
+            function clear_all() {
+                currentInput = "";
+                document.getElementById('result').value = currentInput;
+            }
+
+            function percent() {
+                currentOperator = "%";
+                currentInput += currentOperator;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function parenthesis() {
+                currentOperator = "()";
+                currentInput += currentOperator;
+                document.getElementById('result').value = currentInput;
+            }
+
+            function del() {
+                currentInput = "";
+                document.getElementById('result').value = currentInput;
+            }
+
+
+
+            
+        </script>
+
+
+    </table>
+    
+    
+</body>
+</html>
